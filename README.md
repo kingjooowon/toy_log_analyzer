@@ -4,7 +4,7 @@
 
 ## Features
 
-1. 로그 파일 읽기
+1. 로그 파일을 한 줄(yield사용)씩 읽어서 정보(status code, method, path) 추출하기
 2. 총 요청 수 세기
 3. HTTP 메서드별(GET, POST) 요청 수 세기
 4. 상태 코드별(200, 404, 401) 요청 수 세기
