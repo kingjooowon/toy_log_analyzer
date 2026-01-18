@@ -1,4 +1,5 @@
 import os
+import string
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(BASE_DIR, "sample.log")
@@ -31,5 +32,34 @@ def extract_status_code():
         status_code.append(process[2])
         
     return status_code
+
+def count_status_code():
+    status_code = extract_status_code()
+    count_code = {}
+    for num in status_code:
+        if num not in count_code: # ['200', '401', '200', '404', '200', '200', '200', '404', '500', '200']
+            count_code[num] = 1
+        else:
+            count_code[num] += 1
+            
+    return count_code
+
+def clean_keywords():
+    clean = []
+    for i in extract_status_code():
+        clean.append(int(i))
     
-print(extract_status_code())
+    return clean
+    
+def extract_key():
+    keywords = list(count_status_code().keys())
+    return keywords
+    
+if __name__ == "__main__":
+    print(f"Total requests: {count_lines()}\n")
+    print("Status code summary")
+    for i in range(len(extract_status_code())):
+        
+    
+        
+    
