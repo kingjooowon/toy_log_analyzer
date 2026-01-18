@@ -8,21 +8,28 @@ def read_log():
         for line in f:
             yield line.strip()
             
-def listlize():
-    log =[]
+def extract_middle():
+    middle = []
     for line in read_log():
-        log += line.split('"')
-    
-    return log
+       process = line.split('"')
+       middle.append(process[1])
 
-def count_asked():
-    ask_count = 0
+    return middle
+
+def count_lines():
+    line_count = 0
     with open("sample.log", "r", encoding="utf-8") as f:
         text = f.read()
+        line_count = len(text.splitlines())
         
-        ask_count = len(text.splitlines())
+    return line_count
+
+def extract_status_code():
+    status_code = []
+    for i in range(count_lines()):
+        process = extract_middle()[i].split()
+        status_code.append(process[2])
+        
+    return status_code
     
-    return ask_count
-            
-if __name__ == "__main__":
-    print(list(read_log()))
+print(extract_status_code())
