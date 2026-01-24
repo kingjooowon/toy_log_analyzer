@@ -28,8 +28,25 @@ python log_analyzer.py sample.log
 
 ## Example Output
 
+Totoal requests: 10
+
+
+Status Code Summary
+
+200 : 6
+
+401 : 1
+
+404 : 2
+
+500 : 1
+
 ## Notes
+
+ - 로그 한 줄에서 추출된 상태코드가 '200'이라서 당황했지만 int로 변형하여 처리
+ - zip함수를 사용하여 추출된 키워드 리스트와 추출된 갯수를 하나의 딕셔너리로 묶음(dict(zip(~,~)))
 
 ## Status
 
 - starting project
+- completed number 2, 4 of Featurs
