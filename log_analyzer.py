@@ -43,23 +43,20 @@ def count_status_code():
             count_code[num] += 1
             
     return count_code
-
-def clean_keywords():
+    
+def extract_key():
     clean = []
-    for i in extract_status_code():
+    keywords = list(count_status_code().keys())
+    for i in keywords:
         clean.append(int(i))
     
     return clean
-    
-def extract_key():
-    keywords = list(count_status_code().keys())
-    return keywords
-    
+
 if __name__ == "__main__":
-    print(f"Total requests: {count_lines()}\n")
-    print("Status code summary")
-    for i in range(len(extract_status_code())):
-        
+    result = dict(zip(extract_key(),count_status_code().values()))
     
-        
+    print(f"Total requests: {count_lines()}\n")
+    print("Status Code Summary")
+    for i in range(len(extract_key())):
+        print(f"{extract_key()[i]} : {result[extract_key()[i]]}")
     
